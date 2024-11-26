@@ -1,0 +1,271 @@
+/* Estilos generales */ 
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Fondo desenfocado para el login */
+#loginFormContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('fondo-reparaciones.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    transition: all 0.3s ease; /* Suaviza la transición */
+}
+
+#loginFormContainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* Formulario de login */
+#loginForm {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    text-align: center;
+    color: white;
+    transition: all 0.3s ease; /* Suaviza la transición */
+}
+
+/* Si el formulario se debe ocultar */
+#loginForm.oculto {
+    opacity: 0; /* Hace invisible el formulario */
+    transform: scale(0.9); /* Reduce ligeramente el tamaño */
+}
+
+/* Ajuste al cerrar sesión */
+#loginFormContainer.sesion-terminada {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Estilos del encabezado del login */
+#loginForm h2 {
+    margin: 0 0 20px 0; /* Separación inferior */
+    font-size: 24px;
+    color: black; /* Asegura que el texto sea visible */
+    text-align: center;
+}
+
+#loginForm label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: black; /* Cambia a blanco para contraste */
+}
+
+#loginForm input, #loginForm button {
+    width: 100%; /* Asegura que todos los elementos sean del mismo ancho */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ajusta bordes y relleno */
+}
+
+#loginForm input {
+    font-size: 14px;
+}
+
+#loginForm button {
+    background: #28a745;
+    color: black; /* Cambiado a blanco para mejor visibilidad */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+#loginForm button:hover {
+    background: #218838;
+}
+
+/* Navegación */
+nav {
+    background: #28a745;
+    color: white;
+    padding: 10px 0;
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    box-sizing: border-box; /* Ajusta el padding para que no se desborde */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around; /* Distribuye los elementos equitativamente */
+    width: 100%;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px; /* Espacio alrededor de los enlaces */
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Contenido principal */
+.contenido {
+    padding: 20px;
+}
+
+h2 {
+    color: black;
+}
+
+.seccion-activa {
+    display: block;
+}
+
+.seccion-oculta {
+    display: none;
+}
+
+/* Secciones */
+section {
+    border: 1px solid #28a745;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: #e9f5ee;
+}
+
+section h2 {
+    border-bottom: 2px solid #28a745;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Formularios de tickets */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form label {
+    font-weight: bold;
+    color: #28a745;
+}
+
+form input, form textarea, form button {
+    padding: 10px;
+    border: 1px solid #28a745;
+    border-radius: 5px;
+    box-sizing: border-box; /* Asegura tamaños consistentes */
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: #218838;
+}
+
+form button {
+    background: #28a745;
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #218838;
+}
+
+/* Estilos para los tickets */
+.ticket-abierto {
+    background-color: #d3d3d3; /* Gris claro */
+}
+
+.ticket-en-validacion {
+    background-color: #f7c88a; /* Naranja claro */
+}
+
+.ticket-cerrado {
+    background-color: #4caf50; /* Verde claro oscuro */
+    color: white; /* Texto blanco para los tickets cerrados */
+}
+
+/* Estilo adicional para los tickets */
+.ticket {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.ticket img {
+    max-width: 100px; /* Ajusta según lo necesario */
+    max-height: 100px;
+    display: block;
+    margin-top: 10px;
+}
+
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    #loginForm {
+        width: 90%;
+        padding: 15px;
+    }
+
+    #loginForm h2 {
+        font-size: 20px;
+    }
+
+    #loginForm input, #loginForm button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    nav ul {
+        flex-direction: column; /* En pantallas pequeñas, los elementos se apilan verticalmente */
+        align-items: center; /* Alinea los elementos al centro */
+    }
+}
+
+@media (max-width: 480px) {
+    #loginForm {
+        width: 100%;
+        padding: 10px;
+    }
+
+    #loginForm h2 {
+        font-size: 18px;
+    }
+
+    #loginForm input, #loginForm button {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    nav ul {
+        flex-direction: column; /* En pantallas aún más pequeñas, la navegación se apila más */
+        align-items: center;
+    }
+}

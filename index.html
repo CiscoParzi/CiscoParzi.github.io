@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Tickets para Reparaciones de PCs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sección de login -->
+    <div id="loginFormContainer">
+        <form id="loginForm">
+            <h2>Iniciar Sesión</h2>
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" required>
+
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" required>
+
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+    </div>
+
+    <!-- Menú de navegación (oculto hasta que se inicie sesión) -->
+    <nav id="navMenu" style="display:none;">
+        <ul>
+            <li><a href="#" onclick="mostrarSeccion('agregarTicket')">Agregar Ticket</a></li>
+            <li><a href="#" onclick="mostrarSeccion('abiertos')">Tickets Abiertos</a></li>
+            <li><a href="#" onclick="mostrarSeccion('enValidacion')">En Validación</a></li>
+            <li><a href="#" onclick="mostrarSeccion('cerrados')">Tickets Cerrados</a></li>
+            <li><a href="#" onclick="cerrarSesion()">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+
+    <!-- Secciones de tickets (ocultas hasta iniciar sesión) -->
+    <div class="contenido" id="contenido" style="display:none;">
+        <section id="agregarTicket" class="seccion-activa">
+            <h2>Agregar Ticket</h2>
+            <form id="ticketForm">
+                <label for="nombre">Nombre del cliente:</label>
+                <input type="text" id="nombre" required>
+
+                <label for="problema">Problema:</label>
+                <input type="text" id="problema" required>
+
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" rows="4" required></textarea>
+
+                <label for="imagen">Subir imagen:</label>
+                <input type="file" id="imagen" accept="image/*">
+
+                <button type="submit">Agregar Ticket</button>
+            </form>
+        </section>
+
+        <section id="abiertos" class="seccion-oculta">
+            <h2>Tickets Abiertos</h2>
+            <div id="listaTicketsAbiertos"></div>
+        </section>
+
+        <section id="enValidacion" class="seccion-oculta">
+            <h2>Tickets En Validación</h2>
+            <div id="listaTicketsEnValidacion"></div>
+        </section>
+
+        <section id="cerrados" class="seccion-oculta">
+            <h2>Tickets Cerrados</h2>
+            <div id="listaTicketsCerrados"></div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
